@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Word Counter – Internship Submission
-Author: [Your Full Name]
+Author: Suresh Das
 Date: 2026-08-28
 
 Description:
