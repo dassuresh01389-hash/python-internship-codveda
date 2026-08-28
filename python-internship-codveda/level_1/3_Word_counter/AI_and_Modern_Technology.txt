@@ -1,0 +1,13 @@
+Artificial Intelligence and Modern Technology
+
+Artificial Intelligence (AI) is one of the most important technologies of the modern digital era. It refers to computer systems that can perform tasks that normally require human intelligence, such as understanding language, recognizing images, learning from data, solving problems, and making predictions.
+
+AI is used in many areas of everyday life. Search engines use AI to provide relevant results, recommendation systems suggest videos and products, and virtual assistants can understand and respond to spoken commands. AI is also becoming important in healthcare, education, banking, transportation, agriculture, cybersecurity, and software development.
+
+Machine Learning is a major part of AI. Instead of programming every possible rule manually, machine learning systems learn patterns from data and use those patterns to make predictions or decisions. Deep Learning is a more advanced approach that uses neural networks with multiple layers and is especially useful for tasks such as image recognition, speech processing, and natural language understanding.
+
+Generative AI is another rapidly developing area. It can create new content such as text, images, audio, video, and computer code. Large language models are examples of generative AI systems that can process and generate human-like text.
+
+AI can improve productivity, automate repetitive tasks, support decision-making, and help people solve complex problems. However, responsible development is important. AI systems can produce incorrect information, reflect biases in their training data, or create privacy and security concerns. Human supervision, reliable data, transparency, and ethical use are therefore essential.
+
+The future of AI will likely involve closer cooperation between humans and intelligent software systems. Learning the fundamentals of AI and programming can help students understand this technology and develop useful solutions for real-world problems.
