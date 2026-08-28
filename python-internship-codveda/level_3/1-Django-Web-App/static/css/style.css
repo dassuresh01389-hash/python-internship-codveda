@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Task Manager - Custom Styles
+   ========================================================================== */
+
+:root {
+    --tm-primary: #4f46e5;
+    --tm-primary-dark: #4338ca;
+    --tm-bg: #f5f6fb;
+}
+
+body {
+    background-color: var(--tm-bg);
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Navbar */
+.app-navbar {
+    background: linear-gradient(135deg, var(--tm-primary), var(--tm-primary-dark));
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--tm-primary);
+    border-color: var(--tm-primary);
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--tm-primary-dark);
+    border-color: var(--tm-primary-dark);
+}
+.btn-outline-primary {
+    color: var(--tm-primary);
+    border-color: var(--tm-primary);
+}
+.btn-outline-primary:hover {
+    background-color: var(--tm-primary);
+    border-color: var(--tm-primary);
+}
+
+/* Auth cards (login/register/password reset) */
+.auth-card {
+    border: none;
+    border-radius: 1rem;
+}
+
+/* Generic form inputs rendered directly by Django (not via .form-control class) */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+textarea,
+select {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.85rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin-bottom: 0.25rem;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--tm-primary);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.2);
+}
+input[type="checkbox"] {
+    width: 1.1em;
+    height: 1.1em;
+    margin-top: 0.2em;
+}
+
+/* Cards */
+.card {
+    border-radius: 0.85rem;
+}
+.stat-card {
+    transition: transform 0.15s ease;
+}
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+.stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.task-card {
+    border-radius: 0.85rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08) !important;
+}
+.task-completed {
+    opacity: 0.7;
+}
+.task-completed .card-title {
+    text-decoration: line-through;
+}
+
+/* Priority badges */
+.priority-low {
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+.priority-medium {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+.priority-high {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #e5e7eb;
+    margin-top: 3rem;
+}

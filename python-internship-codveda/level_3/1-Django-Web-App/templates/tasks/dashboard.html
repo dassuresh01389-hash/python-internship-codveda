@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | Task Manager{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+    <div>
+        <h2 class="fw-bold mb-1">Welcome back, {{ user.username }} 👋</h2>
+        <p class="text-muted mb-0">
+            Here's what's happening with your tasks{% if is_admin %} across the whole system{% endif %} today.
+        </p>
+    </div>
+    <a href="{% url 'task_create' %}" class="btn btn-primary mt-2 mt-md-0">
+        <i class="bi bi-plus-circle me-1"></i>Add Task
+    </a>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-6 col-lg-3">
+        <div class="card stat-card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="text-muted small mb-1">Total Tasks</p>
+                        <h3 class="fw-bold mb-0">{{ total_tasks }}</h3>
+                    </div>
+                    <span class="stat-icon bg-primary-subtle text-primary"><i class="bi bi-list-check"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="card stat-card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="text-muted small mb-1">Pending</p>
+                        <h3 class="fw-bold mb-0">{{ pending_tasks }}</h3>
+                    </div>
+                    <span class="stat-icon bg-warning-subtle text-warning"><i class="bi bi-hourglass-split"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="card stat-card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="text-muted small mb-1">Completed</p>
+                        <h3 class="fw-bold mb-0">{{ completed_tasks }}</h3>
+                    </div>
+                    <span class="stat-icon bg-success-subtle text-success"><i class="bi bi-check-circle"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="card stat-card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <p class="text-muted small mb-1">High Priority</p>
+                        <h3 class="fw-bold mb-0">{{ high_priority_tasks }}</h3>
+                    </div>
+                    <span class="stat-icon bg-danger-subtle text-danger"><i class="bi bi-exclamation-triangle"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Recent Tasks</h5>
+        <a href="{% url 'task_list' %}" class="small text-decoration-none">View all &rarr;</a>
+    </div>
+    <div class="card-body">
+        {% if recent_tasks %}
+        <div class="table-responsive">
+            <table class="table align-middle mb-0">
+                <thead>
+                    <tr class="text-muted small">
+                        <th>Title</th>
+                        <th>Priority</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in recent_tasks %}
+                    <tr>
+                        <td>{{ task.title }}</td>
+                        <td><span class="badge priority-{{ task.priority }}">{{ task.get_priority_display }}</span></td>
+                        <td>{{ task.due_date|default:"—" }}</td>
+                        <td>
+                            {% if task.completed %}
+                                <span class="badge bg-success">Completed</span>
+                            {% else %}
+                                <span class="badge bg-secondary">Pending</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p class="text-muted text-center my-4 mb-0">You don't have any tasks yet. <a href="{% url 'task_create' %}">Create your first task</a>.</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
